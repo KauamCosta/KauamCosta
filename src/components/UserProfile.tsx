@@ -21,13 +21,10 @@ const ExperienceItem = ({
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             {job.role}
           </h3>
-          <span className="text-gray-600 dark:text-gray-400">
-            {job.period}
-          </span>
+          <span className="text-gray-600 dark:text-gray-400">{job.period}</span>
         </div>
         <div className="text-gray-700 dark:text-gray-300 mb-2">
-          <span className="font-medium">{job.company}</span> ·{" "}
-          {job.type}
+          <span className="font-medium">{job.company}</span> · {job.type}
         </div>
         <div className="text-gray-600 dark:text-gray-400 mb-2">
           {job.location}
@@ -42,13 +39,10 @@ const ExperienceItem = ({
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
           {job.role}
         </h3>
-        <span className="text-gray-600 dark:text-gray-400">
-          {job.period}
-        </span>
+        <span className="text-gray-600 dark:text-gray-400">{job.period}</span>
       </div>
       <div className="text-gray-700 dark:text-gray-300 mb-2">
-        <span className="font-medium">{job.company}</span> ·{" "}
-        {job.type}
+        <span className="font-medium">{job.company}</span> · {job.type}
       </div>
       <div className="text-gray-600 dark:text-gray-400 mb-2">
         {job.location}
@@ -86,7 +80,9 @@ const UserProfile = () => {
   }, [language]);
 
   const profile = translations[language].profile;
-  const skills = profile.headline.split(" | ").map((skill: string) => skill.trim());
+  const skills = profile.headline
+    .split(" | ")
+    .map((skill: string) => skill.trim());
 
   return (
     <div className="min-h-screen w-full flex justify-center items-start pt-12 bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
@@ -151,7 +147,7 @@ const UserProfile = () => {
                         alt="Instagram"
                         className="transition-transform duration-300 hover:scale-110"
                       />
-                    </a>                    
+                    </a>
                   </div>
                 </div>
               </div>
@@ -206,7 +202,6 @@ const UserProfile = () => {
               </h2>
               <div className="space-y-6">
                 {profile.education.map((edu, index) => {
-
                   return (
                     <div
                       key={index}

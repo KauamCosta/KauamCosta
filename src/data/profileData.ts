@@ -91,12 +91,12 @@ export const translations = {
     profile: {
       firstName: "Kauam",
       lastName: "da Silva Costa",
-      headline: "QA Engineer | Automation | DevOps | Postman | Robot | Appium",
+      headline: "Software Engineer | QA Automation Specialist | Node.js Developer | DevOps & Quality Assurance",
       location: "Curitiba, Paraná, Brasil",
       industry: "IT Services and IT Consulting",
       github: "KauamCosta",
       summary:
-        "Facilidade de comunicação e relacionamento interpessoal e em trabalhar em equipe. Disponibilidade de manhã e tarde. Gosto muito de tecnologia, sempre procurando aprender coisas novas, gosto da área desde mais novo, obtendo assim bastante afinidade com a TI.",
+        "Engenheiro de Computação com sólida trajetória em Qualidade de Software e Automação. Uno a visão analítica de QA à construção de aplicações backend robustas em Node.js, sempre focando em escalabilidade e redução de falhas.\n\nPrincipais Conquistas e Competências:\n- Resultados em Automação: Estruturei processos de teste automatizados para grandes clientes como a Epharma.\n- Gestão de Infraestrutura: Fui responsável pelo suporte e infraestrutura tecnológica de uma rede com 27 filiais em 4 estados brasileiros.\n- Qualidade Técnica: Experiência avançada em testes de API REST (Postman/SoapUI) e manipulação de múltiplos bancos de dados, incluindo Oracle, MySQL, Postgres e SQL Server.\n- Stack de Automação: Especialista em Robot Framework (Avançado), Appium para testes mobile e integração com Azure DevOps.\n- Cultura de Desenvolvimento: Atuação direta em times ágeis aplicando metodologias como BDD e TDD para elevar o padrão de entrega técnica.",
       experience: [
         {
           company: "MJV Technology & Innovation",
@@ -113,7 +113,7 @@ export const translations = {
           location: "Curitiba, Paraná, Brasil",
           type: "Tempo integral",
           description:
-            "Implantação e estruturação dos testes automatizados back e frontend, realização de Análise, elaboração e execução de teste manuais e automatizados na ferramenta Azure Devops. Execução de teste em sistemas Web e desktop, com auxílio de desenvolvedores e product owners para soluções, utilizando a metodologia ágil (Scrum, Kanban, BDD). Criação e execução de querys para inserção e pesquisas nos bancos de dados (Oracle, MySQL, Postgres). Realização de testes de serviços com as ferramentas Postman e SoapUI (API REST). Sempre desenvolvendo a habilidade de protagonismo, comunicação, relacionamentos interpessoais, visão sistêmica, resiliência, inovação, planejamento e organização, foco e atenção, cooperação e visão de time, proatividade, treinamento e desenvolvimento. Participação em definição de processos de desenvolvimento e qualidade de software, além da estruturação para a implementação da automação e de acompanhar o levantamento e definição de requisitos dos demais testes, contribuir na documentação de rotinas, regras de negócio e procedimentos de uso do cliente a partir dos requisitos, também estimando o tempo para realização das novas implementações. Realizando a elaboração e manter de Plano/Estratégia de testes, auxiliando e apoiando o desenvolvimento das atividades do projeto. Criação e execução de cenários de testes via test plan sempre visando a aplicação de boas práticas de testes fazendo o uso de ferramentas que auxiliem e otimizem a especificação e execução dos testes. Realização de abertura de bugs gerando evidências, além do acompanhamento para identificar e corrigir a causa raiz do problema junto aos desenvolvedores independente do ambiente (Homologação, UAT/Qualidade, Pré-Produção e Produção). Utilização das ferramentas metodológicas mais adequadas à estratégia do cliente mantendo uma troca ativa entre Testes Manuais e automatizados (Robot Framework).",
+            "Atuação estratégica na estruturação e implementação de processos de qualidade de software, com foco em automação multiplataforma (Web, Mobile e Desktop) e integridade de dados.\n\nCobertura Total de Testes: Elaborei e ajudei a liderança com uma estratégia que resultou em 100% de cobertura de testes automatizados (Frontend e API) para os portais da companhia, eliminando falhas críticas em produção.\nAutomação Mobile: Implementação e execução de testes automatizados para aplicativos móveis utilizando Appium, garantindo a qualidade e a performance da experiência do usuário em diferentes dispositivos.\nEstruturação com Robot Framework: Responsável pela criação de frameworks de automação utilizando Robot Framework, garantindo a estabilidade e escalabilidade das suítes de teste.\nIntegração CI/CD: Elaboração e execução de testes integrados à ferramenta Azure DevOps, otimizando o fluxo de deploys e a identificação precoce de bugs.\nValidação Técnica de APIs: Execução de testes de serviços com Postman e SoapUI (API REST), assegurando a correta integração entre sistemas.\nManipulação de Dados: Elaboração de queries para pesquisa e inserção em bancos de dados Oracle, MySQL e Postgres, validando regras de negócio complexas diretamente na persistência.\nCultura Ágil e BDD: Atuação em times multidisciplinares sob metodologias Scrum e Kanban, utilizando BDD para alinhar a visão técnica com os requisitos de negócio.",
         },
         {
           company: "Prime Control",
@@ -122,7 +122,34 @@ export const translations = {
           location: "Curitiba, Paraná, Brasil",
           type: "Tempo integral",
           description:
-            "Auxilio na implantação do processo de teste automatizado em 3 clientes. Análise, elaboração e execução de teste na ferramenta HP ALM (Application Lifecycle Management), MS TM, HipTest, AssertThat, JIRA, Jenkins. Execução de teste em sistemas Web e desktop, tendo contato com arquitetos, funcionais, coordenadores, scrum mastes, desenvolvedores e gerentes para soluções, utilizando a metodologia ágil (Scrum, Kanban, BDD). Criação e execução de querys para inserção e pesquisas nos bancos de dados (Oracle, MS SQL Server, MySQL, Postgres). Realização de testes de serviços com as ferramentas Postman e SoapUI. Utilização de comunicadores (Slack, Skype e Microsoft Teams). Sempre desenvolvendo a habilidade de protagonismo, comunicação, relacionamentos interpessoais, visão sistêmica, resiliência, inovação, planejamento e organização, foco e atenção, cooperação e visão de time, proatividade, treinamento e desenvolvimento. Participação em definição de processos de desenvolvimento e qualidade de software, além de acompanhar o levantamento e definição de requisitos, contribuir na documentação de rotinas, regras de negócio e procedimentos de uso do cliente a partir dos requisitos. Realizando a elaboração e manter de Plano/Estratégia de testes, auxiliando e apoiando o desenvolvimento das atividades do projeto. Criação e execução de cenários de testes através das ferramentas implantadas nos clientes (Telefônica, Boticário, WERT Solutions e ePharma) sempre visando a aplicação de boas praticas de testes fazendo o uso de ferramentas que auxiliem e otimizem a especificação e execução dos testes. Realização de abertura de bugs gerando evidencias, além do acompanhamento para identificar e corrigir a causa raiz do problema junto aos desenvolvedores independente do ambiente (Homologação, UAT/Qualidade, Pré-Produção e Produção). Utilização das ferramentas metodologiacas mais adequadas à estratégia do cliente mantendo uma troca ativa entre Testes Manuais e automatizados (Robot Framework).",
+            "Atuação como consultor técnico em projetos estratégicos de garantia de qualidade, sendo responsável pela modernização e implementação de processos de teste em clientes de grande porte.\n\nImplementação de Automação: Liderei o auxílio na implantação do processo de teste automatizado para 3 clientes distintos, reduzindo o esforço manual e aumentando a confiabilidade das entregas.\nAtuação em Grandes Contas: Responsável pela criação e execução de cenários de testes para empresas líderes de mercado como Telefônica (Vivo) e O Boticário, além de WERT Solutions e ePharma.\nTestes Multiplataforma: Execução de testes em sistemas Web e Desktop, garantindo a qualidade de interfaces e fluxos de usuário complexos.\nEspecialista em APIs e Dados: Realização de testes de serviços via Postman e SoapUI, com suporte técnico avançado em bancos de dados (Oracle, MS SQL Server, MySQL e Postgres) para inserção e validação de dados.\nGestão de Ciclo de Vida (ALM): Domínio de ferramentas de gestão e automação como HP ALM, MS TM, JIRA e Jenkins para integração contínua.\nColaboração Estratégica: Interação direta com arquitetos, desenvolvedores, Scrum Masters e gerentes para definição de soluções técnicas e melhoria de processos internos.\nCultura Ágil: Atuação ativa com metodologias Scrum, Kanban e BDD, contribuindo desde o levantamento de requisitos até a documentação de regras de negócio e planos de testes.\nAnálise de Causa Raiz: Gestão completa do ciclo de bugs, desde a abertura até a identificação da causa raiz em ambientes de Homologação, UAT, Pré-Produção e Produção.",
+        },
+        {
+          company: "Toni Toys",
+          role: "Auxiliar de TI",
+          period: "mar de 2019 - set de 2019",
+          location: "Curitiba e Região, Brasil",
+          type: "Tempo integral",
+          description:
+            "Responsável pelo suporte tecnológico centralizado de uma rede de varejo, garantindo a continuidade operacional e a integridade dos dados em múltiplos estados.\n\nEscala de Atendimento: Prestação de suporte técnico (remoto e presencial) para 27 filiais distribuídas em 4 estados (PR, SC, SP e MS).\nGestão de Infraestrutura: Responsável direto pela infraestrutura de TI e pelo suporte ao sistema ERP das unidades de negócio.\nInteligência de Dados: Resolução de inconsistências em banco de dados FireBird e extração de dados para geração de relatórios estratégicos para a central, suprindo limitações do sistema principal.\nOperação Fiscal: Gerenciamento e manutenção de periféricos críticos, incluindo pinpads (TEF/POS) e impressoras fiscais em toda a rede.\nAdaptabilidade Operacional: Atuação multidisciplinar no setor de logística, auxiliando no controle de estoque, correção de cadastros e gestão de produtos avariados por fornecedor.",
+        },
+        {
+          company: "Prefeitura Municipal de Pinhais",
+          role: "Estagiário",
+          period: "jun de 2018 - mar de 2019",
+          location: "Pinhais, Paraná, Brasil",
+          type: "Estágio",
+          description:
+            "Atuação no suporte técnico e manutenção da infraestrutura computacional, focando na otimização de processos internos e disponibilidade de sistemas para os servidores públicos.\n\nDesenvolvimento de Software: Criei uma aplicação para automação da instalação de softwares padrão, que identificava o sistema operacional e instalava os pacotes necessários, otimizando o tempo de preparação das máquinas.\nManutenção Técnica: Realização de manutenção preventiva e correta (software e hardware) em computadores de uso público, garantindo o funcionamento contínuo dos serviços.\nGestão de Ativos: Responsável pela tramitação e organização física e lógica de equipamentos de informática da prefeitura.",
+        },
+        {
+          company: "Secretaria de Estado de Segurança Pública e Administração Penitenciária do Paraná",
+          role: "Estagiário",
+          period: "jul de 2016 - dez de 2016",
+          location: "Curitiba, Paraná, Brasil",
+          type: "Estágio",
+          description:
+            "Atuação no suporte administrativo e gestão de fluxos de trabalho internos da secretaria, com foco na organização e precisão documental.\n\nOrganização de Processos: Gestão e tramitação de processos administrativos, garantindo a celeridade e a conformidade dos fluxos entre departamentos.\nControle de Informações: Responsável pelo preenchimento e manutenção de planilhas de controle, assegurando a integridade e a atualização dos dados registrados.\nGestão de Arquivos: Organização e tramitação de arquivos e documentos oficiais, facilitando o acesso e a consulta interna.",
         },
       ],
       education: [
@@ -223,12 +250,12 @@ export const translations = {
     profile: {
       firstName: "Kauam",
       lastName: "da Silva Costa",
-      headline: "QA Engineer | Automation | DevOps | Postman | Robot | Appium",
-      location: "Curitiba, Paraná, Brazil",
+      headline: "Software Engineer | QA Automation Specialist | Node.js Developer | DevOps & Quality Assurance",
+      location: "Curitiba, Parana, Brazil",
       industry: "IT Services and IT Consulting",
       github: "KauamCosta",
       summary:
-        "Strong communication skills and interpersonal relationships, with excellent teamwork abilities. Available morning and afternoon. Passionate about technology, always seeking to learn new things. I've been interested in the IT field since I was young, thus developing a strong affinity with technology.",
+        "Computer Engineer with a solid background in Software Quality and Automation. I combine analytical QA vision with the construction of robust backend applications in Node.js, always focusing on scalability and fault reduction.\n\nKey Achievements and Skills:\n- Automation Results: I structured automated testing processes for large clients such as Epharma.\n- Infrastructure Management: I was responsible for the support and technological infrastructure of a network with 27 branches in 4 Brazilian states.\n- Technical Quality: Advanced experience in REST API testing (Postman/SoapUI) and manipulation of multiple databases, including Oracle, MySQL, Postgres, and SQL Server.\n- Automation Stack: Specialist in Robot Framework (Advanced), Appium for mobile testing, and integration with Azure DevOps.\n- Development Culture: Direct acting in agile teams applying methodologies like BDD and TDD to raise the technical delivery standard.",
       experience: [
         {
           company: "MJV Technology & Innovation",
@@ -242,19 +269,46 @@ export const translations = {
           company: "epharma PBM phygital",
           role: "Senior Test Automation Analyst",
           period: "Sep 2022 - May 2024",
-          location: "Curitiba, Paraná, Brazil",
+          location: "Curitiba, Parana, Brazil",
           type: "Full-time",
           description:
-            "Implementation and structuring of back-end and front-end automated tests, conducting analysis, development, and execution of manual and automated tests using Azure DevOps. Execution of tests on Web and desktop systems, working with developers and product owners for solutions, using agile methodology (Scrum, Kanban, BDD). Creation and execution of queries for database insertion and searches (Oracle, MySQL, Postgres). Service testing using Postman and SoapUI tools (REST API). Always developing skills in leadership, communication, interpersonal relationships, systemic vision, resilience, innovation, planning and organization, focus and attention, cooperation and team vision, proactivity, training, and development. Participation in defining software development and quality processes, structuring automation implementation, and monitoring the gathering and definition of requirements for other tests, contributing to documentation of routines, business rules, and client usage procedures based on requirements, also estimating time for new implementations. Creating and maintaining Test Plan/Strategy, assisting and supporting project activity development. Creation and execution of test scenarios via test plan always aiming at applying testing best practices using tools that help and optimize test specification and execution. Bug reporting with evidence generation, and monitoring to identify and fix root causes with developers regardless of environment (Staging, UAT/Quality, Pre-Production, and Production). Using methodological tools most appropriate to client strategy maintaining an active exchange between Manual and Automated Tests (Robot Framework).",
+            "Strategic actions in the structuring and implementation of software quality processes, focusing on multi-platform automation (Web, Mobile, and Desktop) and data integrity.\n\nTotal Test Coverage: Developed and assisted leadership with a strategy that resulted in 100% automated test coverage (Frontend and API) for the company's portals, eliminating critical production failures.\nMobile Automation: Implementation and execution of automated tests for mobile applications using Appium, ensuring quality and user experience performance across different devices.\nStructuring with Robot Framework: Responsible for creating automation frameworks using Robot Framework, ensuring stability and scalability of test suites.\nCI/CD Integration: Development and execution of integrated tests in Azure DevOps, optimizing deploy flow and early bug identification.\nTechnical API Validation: Execution of service tests with Postman and SoapUI (API REST), ensuring correct integration between systems.\nData Manipulation: Development of queries for searching and inserting in Oracle, MySQL, and Postgres databases, validating complex business rules directly in persistence.\nAgile Culture and BDD: Acting in multidisciplinary teams under Scrum and Kanban methodologies, using BDD to align technical vision with business requirements.",
         },
         {
           company: "Prime Control",
           role: "Test Analyst",
           period: "Sep 2019 - Aug 2022",
-          location: "Curitiba, Paraná, Brazil",
+          location: "Curitiba, Parana, Brazil",
           type: "Full-time",
           description:
-            "Assisted in implementing automated testing processes for 3 clients. Analysis, development, and execution of tests using HP ALM (Application Lifecycle Management), MS TM, HipTest, AssertThat, JIRA, Jenkins. Execution of tests on Web and desktop systems, interacting with architects, functional analysts, coordinators, scrum masters, developers, and managers for solutions, using agile methodology (Scrum, Kanban, BDD). Creation and execution of queries for database insertion and searches (Oracle, MS SQL Server, MySQL, Postgres). Service testing using Postman and SoapUI tools. Use of communication tools (Slack, Skype, and Microsoft Teams). Always developing skills in leadership, communication, interpersonal relationships, systemic vision, resilience, innovation, planning and organization, focus and attention, cooperation and team vision, proactivity, training, and development. Participation in defining software development and quality processes, monitoring requirements gathering and definition, contributing to documentation of routines, business rules, and client usage procedures based on requirements. Creating and maintaining Test Plan/Strategy, assisting and supporting project activity development. Creation and execution of test scenarios through tools implemented at clients (Telefônica, Boticário, WERT Solutions, and ePharma) always aiming at applying testing best practices using tools that help and optimize test specification and execution. Bug reporting with evidence generation, and monitoring to identify and fix root causes with developers regardless of environment (Staging, UAT/Quality, Pre-Production, and Production). Using methodological tools most appropriate to client strategy maintaining an active exchange between Manual and Automated Tests (Robot Framework).",
+            "Worked as a technical consultant on strategic quality assurance projects, responsible for modernizing and implementing testing processes for large-scale clients.\n\nAutomation Implementation: Led assistance in the implementation of automated testing processes for 3 distinct clients, reducing manual effort and increasing delivery reliability.\nExperience with Major Accounts: Responsible for the creation and execution of test scenarios for market-leading companies such as Telefônica (Vivo) and O Boticário, as well as WERT Solutions and ePharma.\nMulti-platform Testing: Execution of tests on Web and Desktop systems, ensuring quality interfaces and complex user flows.\nAPI and Data Specialist: Execution of service tests via Postman and SoapUI, with advanced technical support in databases (Oracle, MS SQL Server, MySQL, and Postgres) for data insertion and validation.\nLife Cycle Management (ALM): Mastery of management and automation tools such as HP ALM, MS TM, JIRA, and Jenkins for continuous integration.\nStrategic Collaboration: Direct interaction with architects, developers, Scrum Masters, and managers to define technical solutions and internal process improvements.\nAgile Culture: Active participation in Scrum, Kanban, and BDD methodologies, contributing from requirements gathering to business rules documentation and test plans.\nRoot Cause Analysis: Complete management of the bug cycle, from opening to root cause identification in Staging, UAT, Pre-Production, and Production environments.",
+        },
+        {
+          company: "Toni Toys",
+          role: "IT Assistant",
+          period: "Mar 2019 - Sep 2019",
+          location: "Curitiba and Region, Brazil",
+          type: "Full-time",
+          description:
+            "Responsible for centralized technological support for a retail network, ensuring operational continuity and data integrity across multiple states.\n\nService Scale: Provision of technical support (remote and in-person) for 27 branches distributed across 4 states (PR, SC, SP, and MS).\nInfrastructure Management: Directly responsible for IT infrastructure and support for the business units' ERP system.\nData Intelligence: Resolution of inconsistencies in FireBird database and data extraction to generate strategic reports for the central, covering limitations of the main system.\nFiscal Operation: Management and maintenance of critical peripherals, including pinpads (TEF/POS) and thermal printers across the network.\nOperational Adaptability: Multidisciplinary performance in the logistics sector, assisting in inventory control, registration correction, and management of damaged products by supplier.",
+        },
+        {
+          company: "Municipality of Pinhais",
+          role: "Intern",
+          period: "Jun 2018 - Mar 2019",
+          location: "Pinhais, Parana, Brazil",
+          type: "Internship",
+          description:
+            "Acting in technical support and maintenance of computational infrastructure, focusing on optimizing internal processes and system availability for public servants.\n\nSoftware Development: Created an application for automating standard software installation, which identified the operating system and installed necessary packages, optimizing machine preparation time.\nTechnical Maintenance: Performance of preventive and corrective maintenance (software and hardware) on public-use computers, ensuring continuous service operation.\nAsset Management: Responsible for the physical and logical organization and processing of the municipality's IT equipment.",
+        },
+        {
+          company: "SESP-PR (State Secretariat for Public Safety and Penitentiary Administration)",
+          role: "Intern",
+          period: "Jul 2016 - Dec 2016",
+          location: "Curitiba, Parana, Brazil",
+          type: "Internship",
+          description:
+            "Acting in administrative support and management of internal secretary workflows, focusing on organization and document accuracy.\n\nProcess Organization: Management and processing of administrative procedures, ensuring speed and compliance of flows between departments.\nInformation Control: Responsible for filling and maintaining control spreadsheets, ensuring integrity and updating of recorded data.\nFile Management: Physical and digital organization and processing of official files and documents, facilitating access and internal consultation.",
         },
       ],
       education: [
