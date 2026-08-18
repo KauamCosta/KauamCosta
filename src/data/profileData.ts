@@ -100,8 +100,8 @@ export const translations = {
       experience: [
         {
           company: "MJV Technology & Innovation",
-          role: "Analista de garantia de qualidade de software",
-          period: "jul de 2024 - Até o momento",
+          role: "Analista de garantia da qualidade de software",
+          period: "jul de 2024 — atualmente",
           location: "Remota",
           type: "Tempo integral",
           description: "",
@@ -140,7 +140,7 @@ export const translations = {
           location: "Pinhais, Paraná, Brasil",
           type: "Estágio",
           description:
-            "Atuação no suporte técnico e manutenção da infraestrutura computacional, focando na otimização de processos internos e disponibilidade de sistemas para os servidores públicos.\n\nDesenvolvimento de Software: Criei uma aplicação para automação da instalação de softwares padrão, que identificava o sistema operacional e instalava os pacotes necessários, otimizando o tempo de preparação das máquinas.\nManutenção Técnica: Realização de manutenção preventiva e correta (software e hardware) em computadores de uso público, garantindo o funcionamento contínuo dos serviços.\nGestão de Ativos: Responsável pela tramitação e organização física e lógica de equipamentos de informática da prefeitura.",
+            "Atuação no suporte técnico e na manutenção da infraestrutura computacional, com foco na otimização de processos internos e na disponibilidade de sistemas para os servidores públicos.\n\nDesenvolvimento de software: Criei uma aplicação para automatizar a instalação de softwares padrão, identificando o sistema operacional e instalando os pacotes necessários para reduzir o tempo de preparação das máquinas.\nManutenção técnica: Realizei manutenção preventiva e corretiva (software e hardware) em computadores de uso público, garantindo o funcionamento contínuo dos serviços.\nGestão de ativos: Fui responsável pela tramitação e organização física e lógica dos equipamentos de informática da prefeitura.",
         },
         {
           company: "Secretaria de Estado de Segurança Pública e Administração Penitenciária do Paraná",
@@ -164,7 +164,7 @@ export const translations = {
           school: "SENAI",
           degree: "Técnico em informática",
           period: "2015 - 2016",
-          activities: "Programação e manutençao de Computadores - Geral",
+          activities: "Programação e manutenção de computadores — geral",
         },
       ],
       certifications: [
@@ -199,7 +199,7 @@ export const translations = {
           link: "https://udemy-certificate.s3.amazonaws.com/image/UC-fe2e76d3-e664-4bbb-8ec7-8a351d0eefbd.jpg?v=1602263659000",
         },
         {
-          name: "Jogo da memória para auxílio à pessoas com dificuldade de memória ou alzheimer",
+          name: "Jogo da memória para auxílio a pessoas com dificuldade de memória ou Alzheimer",
           issuer: "CONTECC 2019",
           date: "jul de 2019",
           link: "https://www.confea.org.br/sites/default/files/uploads-imce/Contecc2019/El%C3%A9trica/JOGO%20DA%20MEMORIA%20PARA%20AUXILIO%20DAS%20PESSOAS%20COM%20DIFICULDADE%20DE%20MEMORIA%20OU%20MAL%20DE%20ALZHEIMER.pdf",
@@ -222,11 +222,11 @@ export const translations = {
         },
         {
           title:
-            "Jogo da memória para auxílio à pessoas com dificuldade de memória ou alzheimer",
+            "Jogo da memória para auxílio a pessoas com dificuldade de memória ou Alzheimer",
           publisher: "CONTECC 2019",
           date: "2 de jul de 2019",
           description:
-            "Este artigo apresenta um trabalho desenvolvido como projeto de aprendizagem baseada em problemas (PBL – Problem Based Learning) no quarto período do curso de Engenharia da Computação presencial da UNINTER. Consiste na prototipagem de um dispositivo baseado no jogo Genius, que testa as capacidades cognitivas do jogador, de forma a ser utilizado como opção para auxílio no tratamento de disfunções de memória ou Alzheimer. O sistema desenvolvido é baseado na plataforma Arduíno e reproduz a operação do jogo Genius, com modificações que incluem um novo projeto mecânico e um display para exibição de mensagens. Os resultados apresentam testes do protótipo construído indicando a possibilidade de uso do mesmo para o exercício de memorização.",
+            "Este artigo apresenta um trabalho desenvolvido como projeto de aprendizagem baseada em problemas (PBL – Problem Based Learning) no quarto período do curso presencial de Engenharia da Computação da UNINTER. Consiste na prototipagem de um dispositivo baseado no jogo Genius, que testa as capacidades cognitivas do jogador e pode auxiliar no tratamento de disfunções de memória ou Alzheimer. O sistema foi desenvolvido com a plataforma Arduino e reproduz a operação do jogo Genius, com modificações que incluem um novo projeto mecânico e um display para exibição de mensagens. Os resultados dos testes indicam a possibilidade de uso do protótipo em exercícios de memorização.",
           link: "https://drive.google.com/file/d/0B4urygqFd5wKZzFObzYzbjVsMlpBby1ERWlGTFNDaW1sZ0lZ/view?resourcekey=0-lqXpDjMlvgX8_2Bx7lEGLA",
         },
       ],

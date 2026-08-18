@@ -1,319 +1,150 @@
 import { useEffect, useState } from "react";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
-import { translations, type Experience } from "../data/profileData";
-import LocationIcon from "../assets/LocationIcon";
+import { translations, type Experience, type Language } from "../data/profileData";
 
-const ExperienceItem = ({
-  job,
-  language,
-}: {
-  job: Experience;
-  language: "pt" | "en";
-}) => {
+const sectionIds = { about: "sobre", experience: "experiencia", education: "formacao", certifications: "certificacoes", publications: "publicacoes" };
+const ExternalArrow = () => <span aria-hidden="true">↗</span>;
+
+const ExperienceItem = ({ job, language, isCurrent }: { job: Experience; language: Language; isCurrent: boolean }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const needsTruncation = (job.description || "").length > 200;
-
-  if (!job.description) {
-    return (
-      <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-            {job.role}
-          </h3>
-          <span className="text-gray-600 dark:text-gray-400">{job.period}</span>
-        </div>
-        <div className="text-gray-700 dark:text-gray-300 mb-2">
-          <span className="font-medium">{job.company}</span> · {job.type}
-        </div>
-        <div className="text-gray-600 dark:text-gray-400 mb-2">
-          {job.location}
-        </div>
-      </div>
-    );
-  }
+  const needsTruncation = job.description.length > 420;
+  const description = needsTruncation && !isExpanded ? `${job.description.substring(0, 420).trim()}…` : job.description;
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-          {job.role}
-        </h3>
-        <span className="text-gray-600 dark:text-gray-400">{job.period}</span>
+    <article className="timeline-item">
+      <div className="timeline-marker" aria-hidden="true" />
+      <div className="experience-card">
+        <div className="experience-heading">
+          <div>
+            <div className="experience-company-row">
+              <p className="eyebrow">{job.company}</p>
+              {isCurrent && <span className="current-badge"><span aria-hidden="true" />{language === "pt" ? "Atual" : "Current"}</span>}
+            </div>
+            <h3>{job.role}</h3>
+          </div>
+          <time>{job.period}</time>
+        </div>
+        <div className="job-meta"><span>{job.type}</span><span>{job.location}</span></div>
+        {description && <p className="job-description">{description}</p>}
+        {needsTruncation && (
+          <button type="button" className="text-button" aria-expanded={isExpanded} onClick={() => setIsExpanded((expanded) => !expanded)}>
+            {isExpanded ? translations[language].seeLess : translations[language].seeMore}
+            <span aria-hidden="true">{isExpanded ? " ↑" : " ↓"}</span>
+          </button>
+        )}
       </div>
-      <div className="text-gray-700 dark:text-gray-300 mb-2">
-        <span className="font-medium">{job.company}</span> · {job.type}
-      </div>
-      <div className="text-gray-600 dark:text-gray-400 mb-2">
-        {job.location}
-      </div>
-      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-        {isExpanded
-          ? job.description
-          : `${job.description.substring(0, 200)}${
-              needsTruncation ? "..." : ""
-            }`}
-      </p>
-      {needsTruncation && (
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-blue-600 dark:text-blue-400 hover:underline mt-4 font-semibold"
-        >
-          {isExpanded
-            ? translations[language].seeLess
-            : translations[language].seeMore}
-        </button>
-      )}
-    </div>
+    </article>
   );
 };
 
 const UserProfile = () => {
-  const [language, setLanguage] = useState<"pt" | "en">(() => {
+  const [language, setLanguage] = useState<Language>(() => {
     if (typeof window === "undefined") return "pt";
-    const storedLang = localStorage.getItem("language");
-    return (storedLang as "pt" | "en") || "pt";
+    return localStorage.getItem("language") === "en" ? "en" : "pt";
   });
 
   useEffect(() => {
     localStorage.setItem("language", language);
+    document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
   }, [language]);
 
-  const profile = translations[language].profile;
-  const skills = profile.headline
-    .split(" | ")
-    .map((skill: string) => skill.trim());
+  const copy = translations[language];
+  const profile = copy.profile;
+  const skills = profile.headline.split(" | ").map((skill) => skill.trim());
+  const summaryBlocks = profile.summary.split("\n\n");
+  const achievementLines = summaryBlocks.slice(1).flatMap((block) => block.split("\n")).filter((line) => line.trim().startsWith("-")).map((line) => line.replace(/^[-•]\s*/, ""));
+  const navigation = [[copy.about, sectionIds.about], [copy.experience, sectionIds.experience], [copy.education, sectionIds.education], [copy.certifications, sectionIds.certifications], [copy.publications, sectionIds.publications]];
 
   return (
-    <div className="min-h-screen w-full flex justify-center items-start pt-12 bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
-      <ThemeToggle />
-      <LanguageToggle language={language} setLanguage={setLanguage} />
-      <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Card Principal */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl mb-8">
-          <div className="bg-[url('https://media.licdn.com/dms/image/v2/D4D16AQHgQKoqy76eEw/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1683450209407?e=1760572800&v=beta&t=SBmWN1pqef-qRjSdrR61CG9Si9H_aUXP10xpPfohcis')]">
-            <div className="bg-black/70 w-full h-full p-6">
-              <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-                {/* Foto do GitHub */}
-                <div className="flex-shrink-0">
-                  <img
-                    src={`https://github.com/${profile.github}.png`}
-                    alt={`${profile.firstName} ${profile.lastName}`}
-                    className="w-32 h-32 rounded-full border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
+    <div className="site-shell">
+      <header className="topbar">
+        <a className="brand" href="#top" aria-label={language === "pt" ? "Ir para o início" : "Go to the top"}><span>KC</span><strong>Kauam Costa</strong></a>
+        <nav aria-label={language === "pt" ? "Navegação principal" : "Main navigation"}>
+          {navigation.slice(0, 3).map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
+        </nav>
+        <div className="toolbar"><LanguageToggle language={language} setLanguage={setLanguage} /><ThemeToggle language={language} /></div>
+      </header>
 
-                {/* Informações Principais */}
-                <div className="flex-1 text-center md:text-left">
-                  <h1 className="text-4xl font-bold text-white mb-2">{`${profile.firstName} ${profile.lastName}`}</h1>
-                  <p className="text-xl text-blue-100">
-                    {profile.headline.split("|")[0].trim()}
-                  </p>
-                  <div className="flex items-center justify-center md:justify-start mt-3 text-blue-100">
-                    <LocationIcon />
-                    <span>{profile.location}</span>
-                  </div>
-                  {/* Badges de Redes Sociais e Tecnologias */}
-                  <div className="flex justify-center md:justify-start flex-wrap gap-2 mt-4">
-                    <a
-                      href={`https://github.com/${profile.github}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
-                        alt="GitHub"
-                        className="transition-transform duration-300 hover:scale-110"
-                      />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/kauamcosta/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"
-                        alt="LinkedIn"
-                        className="transition-transform duration-300 hover:scale-110"
-                      />
-                    </a>
-                    <a
-                      href="https://www.instagram.com/kauam_zito/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white"
-                        alt="Instagram"
-                        className="transition-transform duration-300 hover:scale-110"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+      <main id="top">
+        <section className="hero" aria-labelledby="profile-name">
+          <div className="hero-glow hero-glow-one" /><div className="hero-glow hero-glow-two" />
+          <div className="hero-content">
+            <div className="availability"><span aria-hidden="true" />{language === "pt" ? "Engenharia de Software · Qualidade · Automação" : "Software Engineering · Quality · Automation"}</div>
+            <h1 id="profile-name">{profile.firstName} <em>{profile.lastName}</em></h1>
+            <p className="hero-role">{skills[0]}</p>
+            <p className="hero-intro">{summaryBlocks[0]}</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="https://www.linkedin.com/in/kauamcosta/" target="_blank" rel="noreferrer">LinkedIn <ExternalArrow /></a>
+              <a className="button button-secondary" href={`https://github.com/${profile.github}`} target="_blank" rel="noreferrer">GitHub <ExternalArrow /></a>
             </div>
           </div>
+          <aside className="profile-visual" aria-label={language === "pt" ? "Resumo do perfil" : "Profile overview"}>
+            <div className="portrait-frame"><img src={`https://github.com/${profile.github}.png`} alt={`${profile.firstName} ${profile.lastName}`} /></div>
+            <div className="profile-stamp"><span className="stamp-label">{language === "pt" ? "Base" : "Based in"}</span><strong>{profile.location}</strong></div>
+            <div className="profile-index" aria-hidden="true">01</div>
+          </aside>
+        </section>
 
-          <div className="p-8">
-            {/* Seção Sobre */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
-                {translations[language].about}
-              </h2>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                {profile.summary}
-              </p>
+        <div className="content-grid">
+          <aside className="side-column"><div className="sticky-panel">
+            <p className="section-number">Perfil / 01</p>
+            <h2>{language === "pt" ? "Visão técnica com foco no resultado." : "Technical vision focused on outcomes."}</h2>
+            <div className="quick-facts">
+              <div><span>{language === "pt" ? "Atuação" : "Focus"}</span><strong>Software & QA</strong></div>
+              <div><span>{language === "pt" ? "Localização" : "Location"}</span><strong>Curitiba, PR</strong></div>
+              <div><span>{language === "pt" ? "Idiomas" : "Languages"}</span><strong>PT · EN</strong></div>
             </div>
+          </div></aside>
 
-            {/* Seção de Habilidades */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
-                {translations[language].skills}
-              </h2>
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill: string, index: number) => (
-                  <span
-                    key={index}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full 
-                             text-sm font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Seção de Experiência */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
-                {translations[language].experience}
-              </h2>
-              <div className="space-y-6">
-                {profile.experience.map((job, index) => (
-                  <ExperienceItem key={index} job={job} language={language} />
-                ))}
-              </div>
-            </div>
-
-            {/* Seção de Formação */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
-                {translations[language].education}
-              </h2>
-              <div className="space-y-6">
-                {profile.education.map((edu, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-6 hover:shadow-md transition-shadow duration-300"
-                    >
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                          {edu.degree}
-                        </h3>
-                        <span className="text-gray-600 dark:text-gray-400">
-                          {edu.period}
-                        </span>
-                      </div>
-                      <div className="text-gray-700 dark:text-gray-300 mb-2">
-                        {edu.school}
-                      </div>
-                      {edu.activities && (
-                        <p className="text-gray-600 dark:text-gray-400">
-                          {edu.activities}
-                        </p>
-                      )}
-                    </div>
-                  );
+          <div className="main-column">
+            <section id={sectionIds.about} className="content-section about-section">
+              <div className="section-heading"><p className="section-number">01</p><h2>{copy.about}</h2></div>
+              <p className="lead-copy">{summaryBlocks[0]}</p>
+              <div className="achievement-grid">
+                {achievementLines.map((achievement, index) => {
+                  const [title, ...body] = achievement.split(":");
+                  return <article key={achievement}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body.join(":").trim()}</p></article>;
                 })}
               </div>
-            </div>
+              <div className="skill-cloud" aria-label={copy.skills}>{skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
+            </section>
 
-            {/* Seção de Certificações */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
-                {translations[language].certifications}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {profile.certifications.map((cert, index) => (
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={index}
-                    className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 hover:shadow-md transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-600/50 group"
-                  >
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                      {cert.name}
-                      <svg
-                        className="w-4 h-4 inline-block ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </h3>
-                    <div className="text-gray-600 dark:text-gray-400">
-                      {cert.issuer} ·{" "}
-                      <span className="italic font-bold">
-                        Certificação emitida em{" "}
-                      </span>{" "}
-                      {cert.date}
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
+            <section id={sectionIds.experience} className="content-section">
+              <div className="section-heading"><p className="section-number">02</p><h2>{copy.experience}</h2></div>
+              <div className="timeline">{profile.experience.map((job, index) => <ExperienceItem key={`${job.company}-${job.period}`} job={job} language={language} isCurrent={index === 0} />)}</div>
+            </section>
 
-            {/* Seção de Publicações */}
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
-                {translations[language].publications}
-              </h2>
-              <div className="space-y-6">
-                {profile.publications.map((pub, index) => (
-                  <a
-                    href={pub.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={index}
-                    className="block bg-gray-50 dark:bg-gray-700/50 rounded-lg p-6 hover:shadow-md transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-600/50 group"
-                  >
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 flex items-center">
-                      {pub.title}
-                      <svg
-                        className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </h3>
-                    <div className="text-gray-600 dark:text-gray-400 mb-2">
-                      {pub.publisher} · {pub.date}
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300">
-                      {pub.description}
-                    </p>
-                  </a>
-                ))}
-              </div>
-            </div>
+            <section id={sectionIds.education} className="content-section">
+              <div className="section-heading"><p className="section-number">03</p><h2>{copy.education}</h2></div>
+              <div className="education-grid">{profile.education.map((education) => <article key={education.degree}><time>{education.period}</time><h3>{education.degree}</h3><p className="education-school">{education.school}</p><p>{education.activities}</p></article>)}</div>
+            </section>
+
+            <section id={sectionIds.certifications} className="content-section">
+              <div className="section-heading"><p className="section-number">04</p><h2>{copy.certifications}</h2></div>
+              <div className="link-list">{profile.certifications.map((certification, index) => (
+                <a key={certification.name} href={certification.link} target="_blank" rel="noreferrer">
+                  <span className="link-index">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="link-copy"><strong>{certification.name}</strong><small>{certification.issuer} · {copy.issuedOn} {certification.date}</small></span>
+                  <ExternalArrow />
+                </a>
+              ))}</div>
+            </section>
+
+            <section id={sectionIds.publications} className="content-section">
+              <div className="section-heading"><p className="section-number">05</p><h2>{copy.publications}</h2></div>
+              <div className="publication-grid">{profile.publications.map((publication) => (
+                <a key={publication.title} href={publication.link} target="_blank" rel="noreferrer">
+                  <div className="publication-topline"><span>{publication.publisher}</span><ExternalArrow /></div>
+                  <h3>{publication.title}</h3><time>{publication.date}</time><p>{publication.description}</p>
+                </a>
+              ))}</div>
+            </section>
           </div>
         </div>
-      </div>
+      </main>
+
+      <footer><div><strong>Kauam Costa</strong><span>{language === "pt" ? "Engenharia de Software & Qualidade" : "Software Engineering & Quality"}</span></div><a href="#top">{language === "pt" ? "Voltar ao topo ↑" : "Back to top ↑"}</a></footer>
     </div>
   );
 };
