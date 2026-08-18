@@ -4,13 +4,12 @@ import type { Language } from "../data/profileData";
 const ThemeToggle = ({ language }: { language: Language }) => {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window === "undefined") return false;
-    const storedTheme = localStorage.getItem("theme");
-    return storedTheme ? storedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return localStorage.getItem("theme-v2") === "dark";
   });
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme-v2", isDark ? "dark" : "light");
   }, [isDark]);
 
   return (
