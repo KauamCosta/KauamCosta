@@ -31,10 +31,19 @@ export interface Publication {
   link: string;
 }
 
+export interface TechnicalProject {
+  name: string;
+  scope: string;
+  description: string;
+  contribution: string;
+  stack: string[];
+}
+
 export interface Translation {
   about: string;
   skills: string;
   experience: string;
+  projects: string;
   education: string;
   certifications: string;
   issuedOn: string;
@@ -52,6 +61,7 @@ export interface Translation {
     github: string;
     summary: string;
     experience: Experience[];
+    projects: TechnicalProject[];
     education: Education[];
     certifications: Certification[];
     publications: Publication[];
@@ -67,6 +77,7 @@ export interface UserProfile {
   industry: string;
   github: string;
   experience: Experience[];
+  projects: TechnicalProject[];
   education: Education[];
   certifications: Certification[];
   publications: Publication[];
@@ -78,6 +89,7 @@ export const translations = {
     about: "Sobre",
     skills: "Habilidades",
     experience: "Experiência Profissional",
+    projects: "Projetos Técnicos",
     education: "Formação Acadêmica",
     certifications: "Certificações",
     publications: "Publicações",
@@ -91,12 +103,12 @@ export const translations = {
     profile: {
       firstName: "Kauam",
       lastName: "da Silva Costa",
-      headline: "Software Engineer | QA Automation Specialist | Node.js Developer | DevOps & Quality Assurance",
+      headline: "Software Engineer | QA Automation Specialist | TypeScript & Node.js | DevOps & Quality Assurance",
       location: "Curitiba, Paraná, Brasil",
       industry: "IT Services and IT Consulting",
       github: "KauamCosta",
       summary:
-        "Engenheiro de Computação com sólida trajetória em Qualidade de Software e Automação. Uno a visão analítica de QA à construção de aplicações backend robustas em Node.js, sempre focando em escalabilidade e redução de falhas.\n\nPrincipais Conquistas e Competências:\n- Resultados em Automação: Estruturei processos de teste automatizados para grandes clientes como a Epharma.\n- Gestão de Infraestrutura: Fui responsável pelo suporte e infraestrutura tecnológica de uma rede com 27 filiais em 4 estados brasileiros.\n- Qualidade Técnica: Experiência avançada em testes de API REST (Postman/SoapUI) e manipulação de múltiplos bancos de dados, incluindo Oracle, MySQL, Postgres e SQL Server.\n- Stack de Automação: Especialista em Robot Framework (Avançado), Appium para testes mobile e integração com Azure DevOps.\n- Cultura de Desenvolvimento: Atuação direta em times ágeis aplicando metodologias como BDD e TDD para elevar o padrão de entrega técnica.",
+        "Engenheiro de Computação com sólida trajetória em Qualidade de Software e Automação. Uno a visão analítica de QA ao desenvolvimento de aplicações em TypeScript e Node.js, sempre focando em testabilidade, escalabilidade e redução de falhas.\n\nPrincipais Conquistas e Competências:\n- Ecossistemas regulados: Experiência em testes de integração de APIs no Open Finance e em jornadas E2E do Open Insurance, com análise de logs, evidências e rastreabilidade dos resultados.\n- Automação de Qualidade: Estruturei processos e arquiteturas de automação com Robot Framework, atualmente aplicados à migração dos portais médicos da Novamed.\n- Engenharia orientada à qualidade: Desenvolvimento em TypeScript com testes de integração sobre bancos reais, APIs e fluxos resilientes a concorrência e falhas.\n- Qualidade Técnica: Experiência avançada em testes de API REST (Postman/SoapUI) e manipulação de múltiplos bancos de dados, incluindo Oracle, MySQL, Postgres e SQL Server.\n- Cobertura Multiplataforma: Atuação em testes Web, Mobile, Desktop, serviços, integração, regressão, acessibilidade e compatibilidade entre navegadores.",
       experience: [
         {
           company: "MJV Technology & Innovation",
@@ -104,7 +116,8 @@ export const translations = {
           period: "jul de 2024 — atualmente",
           location: "Remota",
           type: "Tempo integral",
-          description: "",
+          description:
+            "Atuação em projetos de qualidade para ecossistemas financeiros, de seguros e saúde, cobrindo integrações, jornadas digitais, evidências e automação.\n\nOpen Finance: Execução de testes de integração de APIs e validação da transição de dados entre instituições, com análise de logs, identificação de falhas e geração de evidências para apoiar as correções.\n\nOpen Insurance: Testes E2E dos portais das seguradoras participantes em diferentes jornadas e modalidades de seguro. Planejamento e condução de sessões conjuntas e bilaterais para validar navegabilidade, integrações e transferência de dados, com captura de logs e evidências anonimizadas. Análise de indicadores e dados voluntários, criação de gráficos, mapeamento de combinações e rastreabilidade dos resultados em Jira, Cicle e Service Desk. Preparação de reports para o cliente, acompanhamento de chamados, organização de materiais no SharePoint e revisão dos guias de experiência da SUSEP.\n\nNovamed: Atuação atual na migração dos portais médicos para uma nova plataforma. Elaboração da estratégia de testes e de cenários em Gherkin; planejamento e execução de testes funcionais, E2E, de serviço, integração, regressão, aceite, cross-browser e acessibilidade; gestão de defeitos, retestes e evidências. Implementação da automação do novo portal em Robot Framework, reutilizando e evoluindo a arquitetura criada em 2024.",
         },
         {
           company: "epharma PBM phygital",
@@ -150,6 +163,35 @@ export const translations = {
           type: "Estágio",
           description:
             "Atuação no suporte administrativo e gestão de fluxos de trabalho internos da secretaria, com foco na organização e precisão documental.\n\nOrganização de Processos: Gestão e tramitação de processos administrativos, garantindo a celeridade e a conformidade dos fluxos entre departamentos.\nControle de Informações: Responsável pelo preenchimento e manutenção de planilhas de controle, assegurando a integridade e a atualização dos dados registrados.\nGestão de Arquivos: Organização e tramitação de arquivos e documentos oficiais, facilitando o acesso e a consulta interna.",
+        },
+      ],
+      projects: [
+        {
+          name: "CSRC",
+          scope: "SaaS multi-organização",
+          description:
+            "Plataforma de eventos e automobilismo com aplicação web, API tipada e persistência geoespacial. Minha atuação conectou desenvolvimento de produto e engenharia de qualidade.",
+          contribution:
+            "Testes de integração com PostgreSQL/PostGIS real, fluxos de comércio concorrentes, recuperação idempotente de reembolsos e fundação de marketplace de fotos.",
+          stack: ["TypeScript", "React", "API REST", "PostgreSQL/PostGIS", "Docker"],
+        },
+        {
+          name: "Synechat",
+          scope: "Comunicação em tempo real",
+          description:
+            "Aplicação web e desktop para comunidades, mensagens, voz e compartilhamento de mídia, construída em uma arquitetura TypeScript distribuída.",
+          contribution:
+            "Funcionalidades de perfis e mensagens, recorte de imagens e testes automatizados para sessões, autenticação, mídia e contratos compartilhados.",
+          stack: ["TypeScript", "React", "Electron", "PostgreSQL", "Redis"],
+        },
+        {
+          name: "BeamRP",
+          scope: "Plataforma multiplayer",
+          description:
+            "Ecossistema de role-play que integra regras de jogo, dados de missões e uma interface web executada dentro do simulador.",
+          contribution:
+            "Evolução de sistemas e interfaces em Lua, TypeScript e React, com integrações entre gameplay, dados e experiência do usuário.",
+          stack: ["Lua", "TypeScript", "React", "Vite", "Integrações"],
         },
       ],
       education: [
@@ -237,6 +279,7 @@ export const translations = {
     about: "About",
     skills: "Skills",
     experience: "Professional Experience",
+    projects: "Technical Projects",
     education: "Education",
     certifications: "Certifications",
     publications: "Publications",
@@ -250,12 +293,12 @@ export const translations = {
     profile: {
       firstName: "Kauam",
       lastName: "da Silva Costa",
-      headline: "Software Engineer | QA Automation Specialist | Node.js Developer | DevOps & Quality Assurance",
+      headline: "Software Engineer | QA Automation Specialist | TypeScript & Node.js | DevOps & Quality Assurance",
       location: "Curitiba, Parana, Brazil",
       industry: "IT Services and IT Consulting",
       github: "KauamCosta",
       summary:
-        "Computer Engineer with a solid background in Software Quality and Automation. I combine analytical QA vision with the construction of robust backend applications in Node.js, always focusing on scalability and fault reduction.\n\nKey Achievements and Skills:\n- Automation Results: I structured automated testing processes for large clients such as Epharma.\n- Infrastructure Management: I was responsible for the support and technological infrastructure of a network with 27 branches in 4 Brazilian states.\n- Technical Quality: Advanced experience in REST API testing (Postman/SoapUI) and manipulation of multiple databases, including Oracle, MySQL, Postgres, and SQL Server.\n- Automation Stack: Specialist in Robot Framework (Advanced), Appium for mobile testing, and integration with Azure DevOps.\n- Development Culture: Direct acting in agile teams applying methodologies like BDD and TDD to raise the technical delivery standard.",
+        "Computer Engineer with a solid background in Software Quality and Automation. I combine an analytical QA mindset with TypeScript and Node.js product development, focusing on testability, scalability, and defect reduction.\n\nKey Achievements and Skills:\n- Regulated ecosystems: Experience with API integration testing for Open Finance and E2E journeys for Open Insurance, including log analysis, evidence collection, and result traceability.\n- Quality Automation: Designed testing processes and automation architectures with Robot Framework, currently applied to the migration of Novamed's medical portals.\n- Quality-driven engineering: TypeScript development with integration tests against real databases, APIs, and flows resilient to concurrency and failures.\n- Technical Quality: Advanced experience in REST API testing (Postman/SoapUI) and multiple databases, including Oracle, MySQL, Postgres, and SQL Server.\n- Cross-platform Coverage: Experience testing Web, Mobile, Desktop, services, integrations, regression, accessibility, and cross-browser compatibility.",
       experience: [
         {
           company: "MJV Technology & Innovation",
@@ -263,7 +306,8 @@ export const translations = {
           period: "Jul 2024 - Present",
           location: "Remote",
           type: "Full-time",
-          description: "",
+          description:
+            "Quality assurance work across financial, insurance, and healthcare ecosystems, covering integrations, digital journeys, evidence, and automation.\n\nOpen Finance: API integration testing and validation of data transitions between institutions, including log analysis, failure identification, and evidence collection to support fixes.\n\nOpen Insurance: E2E testing of participating insurers' portals across different journeys and insurance lines. Planned and facilitated joint and bilateral sessions to validate navigation, integrations, and data transfers, capturing logs and anonymized evidence. Analyzed indicators and voluntary data, created charts, mapped test combinations, and maintained result traceability in Jira, Cicle, and Service Desk. Prepared client reports, followed up on support tickets, organized SharePoint materials, and reviewed SUSEP experience guidelines.\n\nNovamed: Currently supporting the migration of medical portals to a new platform. Creates test strategies and Gherkin scenarios; plans and executes functional, E2E, service, integration, regression, acceptance, cross-browser, and accessibility tests; and manages defects, retests, and evidence. Implementing automation for the new portal with Robot Framework by reusing and evolving the architecture created in 2024.",
         },
         {
           company: "epharma PBM phygital",
@@ -309,6 +353,35 @@ export const translations = {
           type: "Internship",
           description:
             "Acting in administrative support and management of internal secretary workflows, focusing on organization and document accuracy.\n\nProcess Organization: Management and processing of administrative procedures, ensuring speed and compliance of flows between departments.\nInformation Control: Responsible for filling and maintaining control spreadsheets, ensuring integrity and updating of recorded data.\nFile Management: Physical and digital organization and processing of official files and documents, facilitating access and internal consultation.",
+        },
+      ],
+      projects: [
+        {
+          name: "CSRC",
+          scope: "Multi-organization SaaS",
+          description:
+            "Motorsport events platform with a web application, typed API, and geospatial persistence. My contribution connected product development with quality engineering.",
+          contribution:
+            "Integration tests against real PostgreSQL/PostGIS, concurrent commerce flows, idempotent refund recovery, and the foundation of a photo marketplace.",
+          stack: ["TypeScript", "React", "REST API", "PostgreSQL/PostGIS", "Docker"],
+        },
+        {
+          name: "Synechat",
+          scope: "Real-time communication",
+          description:
+            "Web and desktop community platform for messaging, voice, and media sharing, built on a distributed TypeScript architecture.",
+          contribution:
+            "Profile and messaging features, image cropping, and automated tests covering sessions, authentication, media, and shared contracts.",
+          stack: ["TypeScript", "React", "Electron", "PostgreSQL", "Redis"],
+        },
+        {
+          name: "BeamRP",
+          scope: "Multiplayer platform",
+          description:
+            "Role-play ecosystem integrating game rules, mission data, and a web interface running inside the simulator.",
+          contribution:
+            "Evolved systems and interfaces in Lua, TypeScript, and React, integrating gameplay, data, and the user experience.",
+          stack: ["Lua", "TypeScript", "React", "Vite", "Integrations"],
         },
       ],
       education: [

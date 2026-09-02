@@ -3,7 +3,7 @@ import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
 import { translations, type Experience, type Language } from "../data/profileData";
 
-const sectionIds = { about: "sobre", experience: "experiencia", education: "formacao", certifications: "certificacoes", publications: "publicacoes" };
+const sectionIds = { about: "sobre", experience: "experiencia", projects: "projetos", education: "formacao", certifications: "certificacoes", publications: "publicacoes" };
 const ExternalArrow = () => <span aria-hidden="true">↗</span>;
 
 const ExperienceItem = ({ job, language, isCurrent }: { job: Experience; language: Language; isCurrent: boolean }) => {
@@ -54,7 +54,7 @@ const UserProfile = () => {
   const skills = profile.headline.split(" | ").map((skill) => skill.trim());
   const summaryBlocks = profile.summary.split("\n\n");
   const achievementLines = summaryBlocks.slice(1).flatMap((block) => block.split("\n")).filter((line) => line.trim().startsWith("-")).map((line) => line.replace(/^[-•]\s*/, ""));
-  const navigation = [[copy.about, sectionIds.about], [copy.experience, sectionIds.experience], [copy.education, sectionIds.education], [copy.certifications, sectionIds.certifications], [copy.publications, sectionIds.publications]];
+  const navigation = [[copy.about, sectionIds.about], [copy.experience, sectionIds.experience], [copy.projects, sectionIds.projects], [copy.education, sectionIds.education], [copy.certifications, sectionIds.certifications], [copy.publications, sectionIds.publications]];
 
   return (
     <div className="site-shell">
@@ -117,6 +117,24 @@ const UserProfile = () => {
             <section id={sectionIds.experience} className="content-section">
               <div className="section-heading"><p>{language === "pt" ? "Trajetória" : "Career trace"}</p><h2>{copy.experience}</h2></div>
               <div className="timeline">{profile.experience.map((job, index) => <ExperienceItem key={`${job.company}-${job.period}`} job={job} language={language} isCurrent={index === 0} />)}</div>
+            </section>
+
+            <section id={sectionIds.projects} className="content-section projects-section">
+              <div className="section-heading"><p>{language === "pt" ? "Código em produção" : "Code in practice"}</p><h2>{copy.projects}</h2></div>
+              <p className="projects-intro">
+                {language === "pt"
+                  ? "Projetos colaborativos onde qualidade não é uma etapa final: ela orienta arquitetura, código e decisões de produto."
+                  : "Collaborative projects where quality is not a final gate: it informs architecture, code, and product decisions."}
+              </p>
+              <div className="project-ledger">
+                {profile.projects.map((project) => (
+                  <article key={project.name} className="project-entry">
+                    <div className="project-system"><span>{language === "pt" ? "Sistema" : "System"}</span><strong>{project.name}</strong><small>{project.scope}</small></div>
+                    <div className="project-body"><p>{project.description}</p><div className="project-stack">{project.stack.map((technology) => <span key={technology}>{technology}</span>)}</div></div>
+                    <div className="project-evidence"><span>{language === "pt" ? "Contribuição" : "Contribution"}</span><p>{project.contribution}</p></div>
+                  </article>
+                ))}
+              </div>
             </section>
 
             <section id={sectionIds.education} className="content-section">
