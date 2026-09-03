@@ -51,9 +51,17 @@ button { font: inherit; }
   border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
   backdrop-filter: blur(18px);
 }
-.brand { display: inline-flex; align-items: center; gap: 12px; width: max-content; font-family: "Syne", sans-serif; }
-.brand > span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 3px; background: var(--accent); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .05em; }
-.brand strong { font-size: 14px; }
+.brand { display: inline-flex; align-items: center; width: max-content; color: var(--text); }
+.brand-logo { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.brand-mark { display: block; width: 44px; height: 44px; flex: 0 0 auto; filter: drop-shadow(0 6px 10px color-mix(in srgb, var(--accent) 18%, transparent)); }
+.brand-mark svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.brand-glyph, .brand-crest { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: square; stroke-linejoin: miter; }
+.brand-crest { stroke: color-mix(in srgb, var(--line) 72%, transparent); stroke-width: 1; }
+.brand-glyph { stroke-width: 4.5; transition: stroke 180ms ease; }
+.brand-glyph-c { stroke: var(--accent); }
+.brand-glyph-k { stroke: currentColor; }
+.brand-wordmark { margin-right: -.22em; font-family: "Syne", sans-serif; font-size: 8px; font-weight: 700; letter-spacing: .22em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+.brand:hover .brand-glyph-c { stroke: var(--accent-soft); }
 .topbar nav { display: flex; align-items: center; gap: 30px; }
 .topbar nav a { position: relative; color: var(--muted); font-size: 13px; font-weight: 600; }
 .topbar nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: var(--text); transition: right 180ms ease; }
@@ -197,8 +205,9 @@ footer a { color: var(--accent); font-size: 13px; font-weight: 800; }
 
 @media (max-width: 620px) {
   .topbar { min-height: 66px; padding: 12px 18px; }
-  .brand strong { display: none; }
-  .brand > span { width: 38px; height: 38px; }
+  .brand-logo { gap: 1px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .brand-wordmark { font-size: 7px; letter-spacing: .16em; }
   .hero { min-height: auto; padding: 64px 22px 76px; }
   .hero::before { height: 360px; }
   .hero-blueprint { right: -8px; bottom: 18px; font-size: 72px; }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
+import BrandLogo from "./BrandLogo";
 import { translations, type Experience, type Language } from "../data/profileData";
 
 const sectionIds = { about: "sobre", experience: "experiencia", projects: "projetos", education: "formacao", certifications: "certificacoes", publications: "publicacoes" };
@@ -59,7 +60,7 @@ const UserProfile = () => {
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label={language === "pt" ? "Ir para o início" : "Go to the top"}><span>KC</span><strong>Kauam Costa</strong></a>
+        <a className="brand" href="#top" aria-label={language === "pt" ? "Ir para o início" : "Go to the top"}><BrandLogo /></a>
         <nav aria-label={language === "pt" ? "Navegação principal" : "Main navigation"}>
           {navigation.slice(0, 3).map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
         </nav>
