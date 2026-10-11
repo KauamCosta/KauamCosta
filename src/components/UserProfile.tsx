@@ -59,10 +59,11 @@ const UserProfile = () => {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#conteudo">{language === "pt" ? "Pular para o conteúdo" : "Skip to content"}</a>
       <header className="topbar">
         <a className="brand" href="#top" aria-label={language === "pt" ? "Ir para o início" : "Go to the top"}><BrandLogo /></a>
         <nav aria-label={language === "pt" ? "Navegação principal" : "Main navigation"}>
-          {navigation.slice(0, 3).map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
+          {navigation.slice(0, 3).map(([label, id]) => <a key={id} href={`#${id}`}>{id === sectionIds.projects ? (language === "pt" ? "Projetos" : "Projects") : id === sectionIds.experience ? (language === "pt" ? "Experiência" : "Experience") : label}</a>)}
         </nav>
         <div className="toolbar"><LanguageToggle language={language} setLanguage={setLanguage} /><ThemeToggle language={language} /></div>
       </header>
@@ -71,27 +72,28 @@ const UserProfile = () => {
         <section className="hero" aria-labelledby="profile-name">
           <div className="hero-blueprint" aria-hidden="true">QUALITY<br />BUILT IN</div>
           <div className="hero-content">
-            <div className="availability"><span aria-hidden="true" />{language === "pt" ? "Perfil técnico verificado" : "Verified technical profile"}</div>
+            <div className="availability"><span aria-hidden="true" />{language === "pt" ? "Engenharia de software e qualidade" : "Software engineering and quality"}</div>
             <h1 id="profile-name">{profile.firstName} <em>{profile.lastName}</em></h1>
             <p className="hero-role">{skills[0]}</p>
-            <p className="hero-intro">{summaryBlocks[0]}</p>
+            <p className="hero-intro">{language === "pt" ? "Desenvolvo aplicações e automação de testes, conectando experiência de uso, APIs e dados. Conheça meu trabalho em e-commerce, saúde, comunicação e automobilismo." : "I build applications and test automation, connecting user experience, APIs, and data. Explore my work in e-commerce, healthcare, communication, and motorsport."}</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="https://www.linkedin.com/in/kauamcosta/" target="_blank" rel="noreferrer">LinkedIn <ExternalArrow /></a>
+              <a className="button button-primary" href="#projetos">{language === "pt" ? "Explorar projetos" : "Explore projects"} <span aria-hidden="true">↓</span></a>
+              <a className="button button-secondary" href="https://www.linkedin.com/in/kauamcosta/" target="_blank" rel="noreferrer">LinkedIn <ExternalArrow /></a>
               <a className="button button-secondary" href={`https://github.com/${profile.github}`} target="_blank" rel="noreferrer">GitHub <ExternalArrow /></a>
             </div>
           </div>
           <aside className="profile-visual" aria-label={language === "pt" ? "Resumo do perfil" : "Profile overview"}>
             <div className="portrait-frame"><img src={`https://github.com/${profile.github}.png`} alt={`${profile.firstName} ${profile.lastName}`} /></div>
-            <div className="profile-stamp"><span className="stamp-label">{language === "pt" ? "Base" : "Based in"}</span><strong>{profile.location}</strong></div>
+            <div className="profile-stamp"><span className="stamp-label">{language === "pt" ? "Localização" : "Location"}</span><strong>{profile.location}</strong></div>
             <div className="quality-trace" aria-label={language === "pt" ? "Áreas de especialidade" : "Areas of expertise"}>
-              <div><span>API</span><strong>PASS</strong></div>
-              <div><span>MOBILE</span><strong>PASS</strong></div>
-              <div><span>CI/CD</span><strong>ACTIVE</strong></div>
+              <div><span>API</span><strong>{language === "pt" ? "TESTES" : "TESTING"}</strong></div>
+              <div><span>MOBILE</span><strong>QA</strong></div>
+              <div><span>CI/CD</span><strong>{language === "pt" ? "AUTOMAÇÃO" : "AUTOMATION"}</strong></div>
             </div>
           </aside>
         </section>
 
-        <div className="content-grid">
+        <div id="conteudo" tabIndex={-1} className="content-grid">
           <aside className="side-column"><div className="sticky-panel">
             <p className="section-kicker">{language === "pt" ? "Perfil profissional" : "Professional profile"}</p>
             <h2>{language === "pt" ? "Visão técnica com foco no resultado." : "Technical vision focused on outcomes."}</h2>
@@ -100,6 +102,9 @@ const UserProfile = () => {
               <div><span>{language === "pt" ? "Localização" : "Location"}</span><strong>Curitiba, PR</strong></div>
               <div><span>{language === "pt" ? "Idiomas" : "Languages"}</span><strong>PT · EN</strong></div>
             </div>
+            <nav className="section-nav" aria-label={language === "pt" ? "Seções do perfil" : "Profile sections"}>
+              {navigation.map(([label, id]) => <a key={id} href={`#${id}`}>{label} <span aria-hidden="true">↓</span></a>)}
+            </nav>
           </div></aside>
 
           <div className="main-column">
@@ -107,9 +112,9 @@ const UserProfile = () => {
               <div className="section-heading"><p>{language === "pt" ? "Visão geral" : "Overview"}</p><h2>{copy.about}</h2></div>
               <p className="lead-copy">{summaryBlocks[0]}</p>
               <div className="achievement-grid">
-                {achievementLines.map((achievement, index) => {
+                {achievementLines.map((achievement) => {
                   const [title, ...body] = achievement.split(":");
-                  return <article key={achievement}><span>{language === "pt" ? "Evidência" : "Evidence"} {index + 1}</span><h3>{title}</h3><p>{body.join(":").trim()}</p></article>;
+                  return <article key={achievement}><h3>{title}</h3><p>{body.join(":").trim()}</p></article>;
                 })}
               </div>
               <div className="skill-cloud" aria-label={copy.skills}>{skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
@@ -121,18 +126,17 @@ const UserProfile = () => {
             </section>
 
             <section id={sectionIds.projects} className="content-section projects-section">
-              <div className="section-heading"><p>{language === "pt" ? "Código em produção" : "Code in practice"}</p><h2>{copy.projects}</h2></div>
+              <div className="section-heading"><p>{language === "pt" ? "Engenharia aplicada" : "Applied engineering"}</p><h2>{copy.projects}</h2></div>
               <p className="projects-intro">
                 {language === "pt"
-                  ? "Projetos colaborativos onde qualidade não é uma etapa final: ela orienta arquitetura, código e decisões de produto."
-                  : "Collaborative projects where quality is not a final gate: it informs architecture, code, and product decisions."}
+                  ? "Do catálogo de uma loja à rotina de uma clínica: conheça cada projeto e as tecnologias utilizadas."
+                  : "From a store catalog to a clinic's daily workflow: explore each project's purpose and the technologies used."}
               </p>
               <div className="project-ledger">
                 {profile.projects.map((project) => (
                   <article key={project.name} className="project-entry">
-                    <div className="project-system"><span>{language === "pt" ? "Sistema" : "System"}</span><strong>{project.name}</strong><small>{project.scope}</small></div>
+                    <div className="project-system"><h3>{project.name}</h3><small>{project.scope}</small></div>
                     <div className="project-body"><p>{project.description}</p><div className="project-stack">{project.stack.map((technology) => <span key={technology}>{technology}</span>)}</div></div>
-                    <div className="project-evidence"><span>{language === "pt" ? "Contribuição" : "Contribution"}</span><p>{project.contribution}</p></div>
                   </article>
                 ))}
               </div>

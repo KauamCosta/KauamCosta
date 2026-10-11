@@ -35,7 +35,6 @@ export interface TechnicalProject {
   name: string;
   scope: string;
   description: string;
-  contribution: string;
   stack: string[];
 }
 
@@ -167,12 +166,31 @@ export const translations = {
       ],
       projects: [
         {
+          name: "CSRC Store",
+          scope: "E-commerce de produtos físicos",
+          description:
+            "Loja da Capivara Street Racing Curitiba, com vitrine de produtos, variações de tamanho, pré-venda e área do comprador. Reúne catálogo, estoque e pedidos em uma aplicação dedicada ao comércio da marca.",
+          stack: ["TypeScript", "React", "Bun", "Elysia", "PostgreSQL", "Drizzle", "Playwright"],
+        },
+        {
+          name: "DocHub",
+          scope: "Gestão de clínicas e atendimento",
+          description:
+            "Plataforma em desenvolvimento para reunir pacientes, profissionais, agenda e documentos clínicos. Cada clínica tem acesso aos próprios dados, com permissões específicas para administração e equipe médica.",
+          stack: ["TypeScript", "React", "Tailwind CSS", "Bun", "Elysia", "PostgreSQL", "Prisma"],
+        },
+        {
+          name: "FuelTech Game Bridge",
+          scope: "Protótipo Windows · Telemetria de jogos",
+          description:
+            "Ponte entre a telemetria do Forza Horizon 6 e a interface Project CARS do FuelTech FTManager. Converte dados como rotação, velocidade, marcha e pedais para exibição em um painel de bancada, sem conexão com atuadores do veículo.",
+          stack: ["Go", "UDP", "Memória compartilhada", "Windows", "Testes unitários"],
+        },
+        {
           name: "CSRC",
           scope: "SaaS multi-organização",
           description:
-            "Plataforma de eventos e automobilismo com aplicação web, API tipada e persistência geoespacial. Minha atuação conectou desenvolvimento de produto e engenharia de qualidade.",
-          contribution:
-            "Testes de integração com PostgreSQL/PostGIS real, fluxos de comércio concorrentes, recuperação idempotente de reembolsos e fundação de marketplace de fotos.",
+            "Plataforma para organizar eventos de automobilismo, com gestão de inscrições, ingressos e dados geográficos. Reúne uma aplicação web e serviços que conectam participantes e organizadores.",
           stack: ["TypeScript", "React", "API REST", "PostgreSQL/PostGIS", "Docker"],
         },
         {
@@ -180,8 +198,6 @@ export const translations = {
           scope: "Comunicação em tempo real",
           description:
             "Aplicação web e desktop para comunidades, mensagens, voz e compartilhamento de mídia, construída em uma arquitetura TypeScript distribuída.",
-          contribution:
-            "Funcionalidades de perfis e mensagens, recorte de imagens e testes automatizados para sessões, autenticação, mídia e contratos compartilhados.",
           stack: ["TypeScript", "React", "Electron", "PostgreSQL", "Redis"],
         },
         {
@@ -189,8 +205,6 @@ export const translations = {
           scope: "Plataforma multiplayer",
           description:
             "Ecossistema de role-play que integra regras de jogo, dados de missões e uma interface web executada dentro do simulador.",
-          contribution:
-            "Evolução de sistemas e interfaces em Lua, TypeScript e React, com integrações entre gameplay, dados e experiência do usuário.",
           stack: ["Lua", "TypeScript", "React", "Vite", "Integrações"],
         },
       ],
@@ -357,12 +371,31 @@ export const translations = {
       ],
       projects: [
         {
+          name: "CSRC Store",
+          scope: "Physical product e-commerce",
+          description:
+            "Store for Capivara Street Racing Curitiba, featuring a product storefront, size variants, pre-orders, and a customer area. Brings catalog, inventory, and orders together in an application dedicated to the brand's commerce.",
+          stack: ["TypeScript", "React", "Bun", "Elysia", "PostgreSQL", "Drizzle", "Playwright"],
+        },
+        {
+          name: "DocHub",
+          scope: "Clinic and patient care management",
+          description:
+            "Platform in development bringing patients, practitioners, scheduling, and clinical documents together. Each clinic accesses its own data, with specific permissions for administrators and medical staff.",
+          stack: ["TypeScript", "React", "Tailwind CSS", "Bun", "Elysia", "PostgreSQL", "Prisma"],
+        },
+        {
+          name: "FuelTech Game Bridge",
+          scope: "Windows prototype · Game telemetry",
+          description:
+            "Bridge between Forza Horizon 6 telemetry and the FuelTech FTManager Project CARS interface. Converts RPM, speed, gear, and pedal data for a standalone bench dashboard disconnected from vehicle actuators.",
+          stack: ["Go", "UDP", "Shared memory", "Windows", "Unit tests"],
+        },
+        {
           name: "CSRC",
           scope: "Multi-organization SaaS",
           description:
-            "Motorsport events platform with a web application, typed API, and geospatial persistence. My contribution connected product development with quality engineering.",
-          contribution:
-            "Integration tests against real PostgreSQL/PostGIS, concurrent commerce flows, idempotent refund recovery, and the foundation of a photo marketplace.",
+            "Platform for organizing motorsport events, with registration, tickets, and geographic data management. Combines a web application and services connecting participants with organizers.",
           stack: ["TypeScript", "React", "REST API", "PostgreSQL/PostGIS", "Docker"],
         },
         {
@@ -370,8 +403,6 @@ export const translations = {
           scope: "Real-time communication",
           description:
             "Web and desktop community platform for messaging, voice, and media sharing, built on a distributed TypeScript architecture.",
-          contribution:
-            "Profile and messaging features, image cropping, and automated tests covering sessions, authentication, media, and shared contracts.",
           stack: ["TypeScript", "React", "Electron", "PostgreSQL", "Redis"],
         },
         {
@@ -379,8 +410,6 @@ export const translations = {
           scope: "Multiplayer platform",
           description:
             "Role-play ecosystem integrating game rules, mission data, and a web interface running inside the simulator.",
-          contribution:
-            "Evolved systems and interfaces in Lua, TypeScript, and React, integrating gameplay, data, and the user experience.",
           stack: ["Lua", "TypeScript", "React", "Vite", "Integrations"],
         },
       ],
